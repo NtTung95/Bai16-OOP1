@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Xây dựng lớp mô tả hình chữ nhật</title>
+</head>
+<body>
+<canvas id="display" style="width: 500px"></canvas>
+<script>
+    function getRandomHex(){
+        return Math.floor(Math.random()*255);
+    }
+    function getRandomColor(){
+        var red = getRandomHex();
+        var green = getRandomHex();
+        var blue = getRandomHex();
+        return "rgb(" + red + "," + blue + "," + green +")";
+    }
+    function Rectangle(a,b) {
+        debugger
+        let ctx = document.getElementById("display").getContext("2d");
+        ctx.moveTo(0, 0);
+        ctx.lineTo(0, b);
+        ctx.lineTo(a, b);
+        ctx.lineTo(a, 0);
+        ctx.lineTo(0, 0);
+        ctx.strokeStyle = getRandomColor();
+        ctx.stroke();
+        ctx.font = "20px Arial";
+        ctx.fillText("dien tich: " + a*b, 20, 20);
+        ctx.fillText("chu vi: " + (a+b)*2, 20, 40);
+    }
+
+    Rectangle(Math.floor(Math.random()*100),Math.floor(Math.random()*100));
+</script>
+
+</body>
+</html>
